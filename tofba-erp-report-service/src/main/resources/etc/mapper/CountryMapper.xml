@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//www.mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiufang.dao.config.CountryDao">
+	<resultMap type="com.jiufang.orm.config.Country" id="CountryResult">
+		<result property="id" column="id" />
+		<result property="countryNameCn" column="name_cn" />
+		<result property="countryNameEn" column="name_en" />
+	</resultMap>
+
+	<select id="queryCountryById" parameterType="Integer" resultMap="CountryResult">
+		select * from country where id=#{#id}
+	</select>
+	<select id="queryAllCountry" resultMap="CountryResult">
+		select * from country where 1=1
+	</select>	
+</mapper> 
